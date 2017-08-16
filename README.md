@@ -8,3 +8,5 @@ Computer Vision System Toolbox version 7.3
 Robotics System Toolbox version 1.4 
 
 Aerospace Toolbox version 2.19 
+
+# Samples available in samlpeData(simRobot..., realRobot...).
