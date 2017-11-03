@@ -8,10 +8,10 @@ function [ res ] = reachedRobotJointAngles( rosCon, targetJointAngles, precision
 res = 0;
 robotPose = getRobotPose(rosCon);
 
-if length(robotPose.jointsLWR1.Position) == length(targetJointAngles)
+if length(robotPose.Joints) == length(targetJointAngles)
     while ~res
         robotPose = getRobotPose(rosCon);
-        diff = abs(robotPose.jointsLWR1.Position - transpose(targetJointAngles)) <= precision;
+        diff = abs(robotPose.Joints - transpose(targetJointAngles)) <= precision;
         res = sum(diff) == length(targetJointAngles);
         pause(1);
     end

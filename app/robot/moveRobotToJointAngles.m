@@ -8,14 +8,14 @@ function [ res ] = moveRobotToJointAngles( rosCon, jointAngles, vel)
 res = 1;
 
 if length(jointAngles) == 7
-    jointsLWR1.Position = jointAngles;
-    jointsLWR1.Velocity = [vel; vel; vel; vel; vel; vel; vel;];
+    rosCon.jointsLWR1.Position = jointAngles;
+    rosCon.jointsLWR1.Velocity = [vel; vel; vel; vel; vel; vel; vel;];
 else
     res = 0;
 end
 
-if exist('rosCon.pubJointsLWR1', 'var') && res
-    send(rosCon.pubJointsLWR1, jointsLWR1);
+if isfield(rosCon, 'pubJointsLWR1') && res
+    send(rosCon.pubJointsLWR1, rosCon.jointsLWR1);
     reachedRobotJointAngles(rosCon, jointAngles, 0.0017);
 else
     res = 0;

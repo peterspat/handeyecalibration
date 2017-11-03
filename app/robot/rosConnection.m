@@ -15,7 +15,7 @@ rosCon.subCartLWR1 = rossubscriber('/robots/lwr1/get_cartesian','geometry_msgs/P
 rosCon.pubCartLWR1 = rospublisher('/robots/lwr1/set_cartesian','geometry_msgs/Pose');
 
 rosCon.subJointsLWR1 = rossubscriber('/robots/lwr1/get_joint','sensor_msgs/JointState');
-rosCon.pubJointsLWR1 = rospublisher('/robots/lwr1/set_joint','sensor_msgs/JointState');
+[rosCon.pubJointsLWR1, rosCon.jointsLWR1] = rospublisher('/robots/lwr1/set_joint','sensor_msgs/JointState');
 
 end
 
